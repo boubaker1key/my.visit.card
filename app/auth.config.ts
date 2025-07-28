@@ -15,7 +15,8 @@ export const authConfig = {
 
       if (isOnDashboard) {
         if (isLoggedIn) return true;
-        return false; // Redirect unauthenticated users to login page
+        return Response.redirect(new URL('/login', nextUrl));
+        //return false; // Redirect unauthenticated users to login page
       } else if (isLoggedIn) {
         return Response.redirect(new URL('/protected', nextUrl));
       }
