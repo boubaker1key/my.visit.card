@@ -56,14 +56,9 @@ export default function Login() {
   const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (formData: FormData) => {
-    return (
-                <p className="text-sm text-gray-500">
-            Use your email and password to sign in
-          </p> );
     const result = await loginAction(formData);
-    setError(result.error);
     if (result?.error) {
-      setError(result.error);
+      setError("error");
     }
   };
 
@@ -79,9 +74,7 @@ export default function Login() {
         
         {(error || searchParams.get('error')) && (
           <div className="bg-red-50 text-red-600 px-4 py-3 text-sm">
-            hi : 
             {error || 'Invalid email or password'}
-            {searchParams.get('error') || 'Invalid email or password'}
           </div>
         )}
 
