@@ -56,6 +56,10 @@ export default function Login() {
   const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (formData: FormData) => {
+    return (
+                <p className="text-sm text-gray-500">
+            Use your email and password to sign in
+          </p> );
     const result = await loginAction(formData);
     setError(result.error);
     if (result?.error) {
