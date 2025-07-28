@@ -33,7 +33,7 @@ import { getUser } from 'app/db';
 import { authConfig } from 'app/auth.config';
 
 interface User {
-  id: string;
+  id: number;
   email: string;
   password: string;
   // أي حقول إضافية
