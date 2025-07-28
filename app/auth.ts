@@ -22,7 +22,7 @@ export const {
     }),
   ],
 });
-
+/*
 async authorize({ email, password }: any) {
   try {
     console.log('Attempting login for:', email); // Debug
@@ -43,3 +43,4 @@ async authorize({ email, password }: any) {
     throw error; // Important for debugging
   }
 }
+*/
