@@ -77,6 +77,8 @@ export default function Login() {
             hi : 
             {error || 'Invalid email or password'}
             {searchParams.get('error') || 'Invalid email or password'}
+            {result}
+            result.error
           </div>
         )}
 
