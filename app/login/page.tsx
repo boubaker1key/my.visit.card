@@ -58,7 +58,7 @@ export default function Login() {
   const handleSubmit = async (formData: FormData) => {
     const result = await loginAction(formData);
     if (result?.error) {
-      setError("error");
+      setError(result.error);
     }
   };
 
