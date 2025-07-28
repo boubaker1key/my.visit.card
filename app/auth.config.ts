@@ -1,34 +1,5 @@
 import { NextAuthConfig } from 'next-auth';
 
-
-
-
-export const authConfig = {
-  pages: {
-    signIn: '/login',
-    error: '/login?error=true'
-  },
-  callbacks: {
-    authorized({ auth, request }) {
-      const { pathname } = request.nextUrl;
-      
-      if (pathname.startsWith('/protected')) {
-        return !!auth?.user; 
-      }
-
-      if (auth?.user && pathname.startsWith('/login')) {
-        return Response.redirect(new URL('/protected', request.nextUrl));
-      }
-
-      return true;
-    },
-  },
-} satisfies NextAuthConfig;
-
-
-
-
-/*
 export const authConfig = {
   pages: {
     signIn: '/login',
@@ -53,4 +24,4 @@ export const authConfig = {
     },
   },
 } satisfies NextAuthConfig;
-*/
+
