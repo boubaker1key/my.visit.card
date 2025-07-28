@@ -1,4 +1,4 @@
-/*
+
 import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 import { compare } from 'bcrypt-ts';
@@ -23,7 +23,8 @@ export const {
     }),
   ],
 });
-*/
+
+/*********************************************************/
 
 import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
@@ -64,7 +65,7 @@ export const {
           }
 
           // 3. التحقق من كلمة السر
-          const passwordsMatch = await compare(password, user[0].password);
+          const passwordsMatch = await compare(password, user[0].password!);
           if (!passwordsMatch) {
             console.log('Password does not match');
             return null;
