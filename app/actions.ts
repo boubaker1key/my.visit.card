@@ -12,7 +12,7 @@ export async function loginAction(formData: FormData) {
       password: formData.get('password') as string,
     });
 
-    if (result?.error) {
+    if (result.error) {
       return { error: result.error };
     }
 
