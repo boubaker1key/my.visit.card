@@ -50,20 +50,20 @@ import { SubmitButton } from 'app/submit-button';
 import { useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 import { loginAction } from 'app/actions';
-import { useFormState } from 'react-dom';
+
 
 export default function Login() {
-  //const searchParams = useSearchParams();
-  //const [error, setError] = useState<string | null>(null);
-  const [state, formAction] = useFormState(loginAction, null);
-/**
+  const searchParams = useSearchParams();
+  const [error, setError] = useState<string | null>(null);
+
+
   const handleSubmit = async (formData: FormData) => {
     const result = await loginAction(formData);
     if (result?.error) {
       setError(result.error);
     }
   };
-*/
+
   return (
     <div className="flex h-screen w-screen items-center justify-center bg-gray-50">
       <div className="z-10 w-full max-w-md overflow-hidden rounded-2xl border border-gray-100 shadow-xl">
@@ -74,10 +74,13 @@ export default function Login() {
           </p>
         </div>
         
-      {state?.error && (
-        <div className="text-red-500">{state.error}</div>
-      )}
-        <Form action={formAction}>
+        {(error || searchParams.get('error')) && (
+          <div className="bg-red-50 text-red-600 px-4 py-3 text-sm">
+            {error || 'Invalid email or password'}
+          </div>
+        )}
+        
+        <Form action={handleSubmit}>
           <SubmitButton>Sign in</SubmitButton>
           <p className="text-center text-sm text-gray-600">
             {"Don't have an account? "}
