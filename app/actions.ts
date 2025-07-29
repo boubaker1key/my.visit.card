@@ -8,7 +8,7 @@ export async function loginAction(prevState: any,formData: FormData) {
     const password = formData.get('password') as string;
 
     const result = await signIn('credentials', {
-      redirect: false,
+      redirect: '/protected',
       email,
       password,
     });
