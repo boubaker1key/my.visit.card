@@ -2,7 +2,7 @@
 import { signIn } from 'next-auth/react';
 import { redirect } from 'next/navigation';
 
-export async function loginAction(prevState: any,formData: FormData) {
+export async function loginAction(formData: FormData) {
   try {
     const email = formData.get('email') as string;
     const password = formData.get('password') as string;
