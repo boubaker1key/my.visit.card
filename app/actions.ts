@@ -7,12 +7,12 @@ import { redirect } from 'next/navigation';
 export async function loginAction(formData: FormData) {
   try {
     const result = await signIn('credentials', {
-      redirect: true,
+      redirect: false,
       email: formData.get('email') as string,
       password: formData.get('password') as string,
     });
 
-    if (result.error) {
+    if (result?.error) {
       return { error: result.error };
     }
 
