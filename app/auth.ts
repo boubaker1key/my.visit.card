@@ -17,9 +17,9 @@ export const {
       async authorize({ email, password }: any) {
       //  try{
         let user = await getUser(email);
-        if (!user || user.length === 0) return { error: 'Invalid User!' };
+        if (!user || user.length === 0) return false;//{ error: 'Invalid User!' };
         let passwordsMatch = await compare(password, user[0].password!);
-        if (!passwordsMatch) return { error: 'Invalid Password!' };
+        if (!passwordsMatch) return false;//{ error: 'Invalid Password!' };
         return user[0] as any;
         //}catch(err){
        //   return { error: err instanceof Error ? err.message : 'Error credentials!' }; 
