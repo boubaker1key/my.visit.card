@@ -16,7 +16,7 @@ export async function loginAction(formData: FormData) {
       return { error: result.error };
     }
 
-    redirect('/protected');
+    redirect('/login');
   } catch (err) {
     return { error: err instanceof Error ? err.message : 'Invalid credentials' };
   }
