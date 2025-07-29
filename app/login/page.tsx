@@ -76,7 +76,7 @@ export default function Login() {
         
         {(error || searchParams.get('error')) && (
           <div className="bg-red-50 text-red-600 px-4 py-3 text-sm">
-            {error || 'Invalid email or password'}
+            {error || 'Invalid email or password' }
           </div>
         )}
         
