@@ -15,15 +15,15 @@ export const {
   providers: [
     Credentials({
       async authorize({ email, password }: any) {
-        try{
+      //  try{
         let user = await getUser(email);
         if (!user || user.length === 0) return { error: 'Invalid User!' };
         let passwordsMatch = await compare(password, user[0].password!);
         if (!passwordsMatch) return { error: 'Invalid Password!' };
         return user[0] as any;
-        }catch(err){
-          return { error: err instanceof Error ? err.message : 'Error credentials!' }; 
-        }
+        //}catch(err){
+       //   return { error: err instanceof Error ? err.message : 'Error credentials!' }; 
+        //}
       },
     }),
   ],
