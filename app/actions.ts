@@ -1,38 +1,23 @@
+// app/actions.ts
 'use server';
-import { signIn } from 'next-auth/react';
+
+import { signIn } from 'app/auth';
 import { redirect } from 'next/navigation';
 
 export async function loginAction(formData: FormData) {
   try {
-    const email = formData.get('email') as string;
-    const password = formData.get('password') as string;
-
     const result = await signIn('credentials', {
-      redirect: '/protected',
-      email,
-      password,
+      redirect: false,
+      email: formData.get('email') as string,
+      password: formData.get('password') as string,
     });
 
     if (result?.error) {
-
-      return { 
-        error: result.error,
-        status: 'error'
-      };
+      return { error: result.error };
     }
 
-    // التوجيه بعد التحقق من النجاح
-    if (result?.url) {
-      redirect(result.url); // أو redirect('/protected') مباشرة
-    } else {
-      redirect('/protected'); // خطوة احتياطية
-    }
-
+    redirect('/protected');
   } catch (err) {
-    // معالجة الأخطاء غير المتوقعة
-    return {
-      error: err instanceof Error ? err.message : 'An unexpected error occurred',
-      status: 'error'
-    };
+    return { error: err instanceof Error ? err.message : 'Invalid credentials' };
   }
 }
