@@ -14,7 +14,7 @@ export async function loginAction(formData: FormData) {
     });
 
     if (result?.error) {
-      // إرجاع الخطأ مع رمز الحالة
+
       return { 
         error: result.error,
         status: 'error'
