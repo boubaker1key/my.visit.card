@@ -1,4 +1,4 @@
-/*
+
 import Link from 'next/link';
 import { Form } from 'app/form';
 import { signIn } from 'app/auth';
@@ -37,10 +37,10 @@ export default function Login() {
     </div>
   );
 }
-*/
 
 
 
+/*
 
 'use client';
 
@@ -94,3 +94,5 @@ export default function Login() {
     </div>
   );
 }
+
+*/
